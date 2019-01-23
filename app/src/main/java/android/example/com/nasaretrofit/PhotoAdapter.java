@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder> {
+
+    /**
+     * initializer 'new ArrayList<>()' is redundant,
+     * photoUrl is never used
+     */
     private List<String> photosList = new ArrayList<>();
     private String photoURL;
     PhotoViewHolder holder;
@@ -25,6 +30,9 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
     public PhotoViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.photo_listview, viewGroup, false);
+        /**
+         * You dont need to assign a value to holder here you can just return new PhotoViewHolder(view) instead
+         */
         return holder = new PhotoViewHolder(view);
     }
 
@@ -48,5 +56,9 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
             imageView = itemView.findViewById(R.id.imageview);
             textView = itemView.findViewById(R.id.textview);
         }
+
+        /**
+         * PhotoViewHolder is missing an onBind message it should take a String as an input parameter
+         */
     }
 }

@@ -14,6 +14,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
+
+    /**
+     * BASE_URL is never used here remove it
+     * spacePhoto is never used remove it
+     */
     private static final String BASE_URL = "https://api.nasa.gov/mars-photos/";
     private ImageView imageView;
     private TextView textView;
@@ -44,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Photo> call, Throwable t) {
-
+                /**
+                 * You should be logging your throwable here itll be easier to debug if retrofit is not behaving
+                 * as expected
+                 */
             }
         });
 
